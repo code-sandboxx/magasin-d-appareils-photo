@@ -1,13 +1,254 @@
-body {
+/**************************************************/
+/*                     RESET                      */
+/**************************************************/
+
+* {
+  box-sizing: border-box;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;    
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+input, button{
+  border-style: none;
 }
+
+a{
+  text-decoration: none;
+}
+
+/**************************************************/
+/*                      ROOT                      */
+/**************************************************/
+
+
+/**************************************************/
+/*                    LAYOUT                      */
+/**************************************************/
+
+.catalogue {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); 
+  gap: 50px; 
+}
+
+
+/**************************************************/
+/*                   COMPONENTS                   */
+/**************************************************/
+
+body{
+  background-color: rgb(254, 254, 254);
+}
+
+.navbar{
+  background-color:rgb(109, 42, 74);
+  height: 100px;
+  display: flex;
+  padding: 30px 60px 30px 60px;    
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo_wrapper{        
+  display: flex;
+  align-items: center;
+}
+
+.logo_image_container{
+ width: 50px;   
+ margin-right: 15px
+}
+
+.logo_image_container img{
+  object-fit: cover;
+  width: 100%;    
+}
+
+nav{
+  display: flex;      
+}
+
+nav *{
+  margin: 0 20px 0 20px;
+}
+
+nav a{
+  color:  rgb(231, 206, 218);
+  transition: 0.3s ease-in-out;
+  border-radius: 5px;
+  padding: 7px;
+}
+
+nav a:hover{
+  color: rgb(255, 255, 255);
+  border: 1px solid white;    
+}
+
+/*-----------------------------------------------*/
+/*                    BUTTONS                    */                   
+/*-----------------------------------------------*/
+
+.btn_ajouter{
+  margin: 30px 60px 30px 60px;    
+  background-color: rgb(234, 234, 234);
+  transition: 0.3s ease-in-out;
+}
+
+.btn_ajouter:hover{
+  margin: 30px 60px 30px 60px;    
+  background-color: rgb(231, 206, 218);
+}
+
+.btn_modifier{
+  background-color: rgb(181, 240, 223);
+  width: 150px;
+  transition: 0.3s ease-in-out;
+}
+
+.btn_modifier:hover{
+  background-color: rgb(149, 200, 186);
+}
+
+.btn_supprimer{
+  background-color: rgb(249, 214, 214);
+  width: 150px;
+  transition: 0.3s ease-in-out;
+}
+
+.btn_supprimer:hover{
+  background-color: rgb(207, 165, 165);    
+}
+
+/*-----------------------------------------------*/
+/*                CATALOGUE                      */                   
+/*-----------------------------------------------*/
+
+.catalogue{
+  margin: 20px 60px 30px 60px;
+}
+
+/*-----------------------------------------------*/
+/*                PRODUCT CARD                   */                   
+/*-----------------------------------------------*/
+
+.item_wrapper{    
+  display: flex;
+  height: 650px;
+  flex-direction: column;
+  background-color: white;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
+  border-radius: 7px;   
+  position: relative;
+}
+
+.item_img_container{
+  height: 300px; 
+  padding: 30px 30px 0 30px;
+  display: flex;  
+  justify-content: center;
+}
+
+.item_img_container img{
+  object-fit: contain;
+  height: 100%;
+  border-radius: 7px;    
+}
+
+.item_contenu{
+  padding: 30px;    
+}
+
+.item_contenu *:not(:first-child){
+  margin-top: 15px;
+}  
+
+.item_description{   
+  display: -webkit-box;
+  -webkit-line-clamp: 5;
+  -webkit-box-orient: vertical;  
+  overflow: hidden;    
+}
+
+.item_prix{    
+  color: rgb(109, 42, 74);
+}
+
+.item_categorie{
+  color: rgb(145, 145, 145);
+}
+
+.controles{
+  display: flex;
+  padding: 0 30px 30px 30px;
+  justify-content: space-between;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+
+/*-----------------------------------------------*/
+/*                   FOOTER                      */                   
+/*-----------------------------------------------*/
+
+footer{
+  height: 100px;
+  background-color: rgb(109, 42, 74);   
+  padding: 30px;
+}
+
+footer p{
+  text-align: center;
+  color:  rgb(231, 206, 218);
+}
+
+
+/**************************************************/
+/*                  TYPOGRAPHY                    */
+/**************************************************/
+
+*{
+  font-family: 'Rubik', sans-serif;
+  font-size: 16px;
+}
+
+.logo_text{
+  font-family: 'Wallpoet', cursive;
+  font-size: 30px;
+  font-weight: 400;
+  color: rgb(46, 193, 156);
+}
+
+nav a{
+  font-size: 20px;   
+}
+
+.item_description{ 
+  font-size: 14px;
+}   
+
+.item_prix{
+  font-weight: 600;
+}
+
+.item_categorie{
+ font-size: 14px;
+ font-weight: 600;
+}
+
+/**************************************************/
+/*                    UTILITIES                   */
+/**************************************************/
+
+.btn{
+  border-radius: 7px;
+  padding: 12px;
+  border: 1px solid rgb(109, 42, 74);      
+}
+
+
+
+/**************************************************/
+/*               RESPONSIVE STYLES                */
+/**************************************************/
