@@ -38,13 +38,13 @@ input:focus, textarea:focus {
 #root{
   display: flex;
   flex-direction: column;
-  height: 100%; 
-  flex-grow: 1; 
+  height: 100%;    
 }
 
 /**************************************************/
 /*                   COMPONENTS                   */
 /**************************************************/
+
 
 body{
   background-color: rgb(254, 254, 254);
@@ -93,6 +93,48 @@ nav a{
 nav a:hover{
   color: rgb(255, 255, 255);
   border: 1px solid white;    
+}
+
+/*-----------------------------------------------*/
+/*                    LANDING PAGE               */                   
+/*-----------------------------------------------*/
+
+.accueil{
+  flex-grow: 1;
+}
+
+.accueil,
+.hero_wrapper{
+  width: 100%;
+  height: 100%;
+}
+
+.hero_wrapper{
+  position: relative;
+  display: flex;
+  justify-content: center;     
+}
+
+.hero_wrapper p{
+  margin-top: 30px;
+}
+
+.hero_image{
+  object-fit: cover;
+  width: 100%;
+  height: 100vh;    
+}
+
+.hero_text{
+  display: flex;
+  flex-direction: column;
+  position: absolute;     
+  width: 50%;  
+  top: 0;
+  left: 0;
+  bottom: 200px;
+  padding: 80px 80px 0 80px; 
+  height: fit-content;
 }
 
 /*-----------------------------------------------*/
@@ -151,6 +193,14 @@ nav a:hover{
   background-color:  rgb(149, 200, 186); 
 }
 
+.btn_consulter{  
+  margin: 30px 0 30px auto;  
+  transition: 0.3s ease-in-out;
+}
+
+.btn_consulter:hover{  
+  background-color:  rgb(181, 240, 223);   
+}
 
 /*-----------------------------------------------*/
 /*                CATALOGUE                      */                   
@@ -283,6 +333,7 @@ footer{
   background-color: rgb(109, 42, 74);   
   padding: 30px;    
   margin-top: auto;
+  margin-bottom: 0;  
 }
 
 footer p{
@@ -329,6 +380,14 @@ nav a{
   font-weight: 600;
   color: rgb(109, 42, 74);
 }  
+
+.hero_text h1{
+  font-size: 30px;
+}
+
+.hero_text p{
+  font-size: 18px;
+}
 
 /**************************************************/
 /*                    UTILITIES                   */

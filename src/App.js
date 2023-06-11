@@ -3,6 +3,7 @@ import Header from './components/Header'
 import Footer from './components/Footer'
 import ProductCatalogue from './components/ProductCatalogue';
 import ProductForm from './components/ProductForm';
+import Accueil from './components/Accueil';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 function App() {
@@ -111,6 +112,19 @@ function App() {
     <BrowserRouter> 
       <Header /> 
       <Routes>
+
+        <Route path="/" 
+          element={
+            <Accueil            
+          />} 
+        />
+
+        <Route path="/accueil" 
+          element={
+            <Accueil            
+          />} 
+        />
+
         <Route path="/catalogue" element={ 
           products.length > 0 ? ( 
             <ProductCatalogue products={products} onDelete={deleteProduct}/> 
@@ -118,8 +132,21 @@ function App() {
             'Aucun produit' 
           )} />  
 
-        <Route path="/ajouter-produit" element={<ProductForm onAdd={addNewProduct} products={products} />} />
-        <Route path="/modifier-produit/:id" element={<ProductForm onUpdate={updateProduct} products={products} />} />
+        <Route path="/ajouter-produit" 
+          element={
+            <ProductForm 
+            onAdd={addNewProduct} 
+            products={products} 
+          />} 
+        />
+
+        <Route path="/modifier-produit/:id" 
+          element={
+            <ProductForm 
+            onUpdate={updateProduct} 
+            products={products} 
+          />} 
+        />
 
       </Routes> 
       <Footer /> 
