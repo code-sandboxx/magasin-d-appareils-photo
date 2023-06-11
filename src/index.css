@@ -16,6 +16,10 @@ a{
   text-decoration: none;
 }
 
+input:focus {
+  outline: none;
+}
+
 /**************************************************/
 /*                      ROOT                      */
 /**************************************************/
@@ -38,6 +42,13 @@ a{
 
 body{
   background-color: rgb(254, 254, 254);
+  height: 100vh;
+}
+
+#root{
+  display: flex;
+  flex-direction: column;
+  height: 100%;  
 }
 
 .navbar{
@@ -89,7 +100,7 @@ nav a:hover{
 /*-----------------------------------------------*/
 
 .btn_ajouter{
-  margin: 30px 60px 30px 60px;    
+  margin: 60px 60px 30px 60px;    
   background-color: rgb(234, 234, 234);
   transition: 0.3s ease-in-out;
 }
@@ -100,8 +111,7 @@ nav a:hover{
 }
 
 .btn_modifier{
-  background-color: rgb(181, 240, 223);
-  width: 150px;
+  background-color: rgb(181, 240, 223);  
   transition: 0.3s ease-in-out;
 }
 
@@ -119,12 +129,38 @@ nav a:hover{
   background-color: rgb(207, 165, 165);    
 }
 
+.btn_retour{
+  margin-left: -30px;
+  text-align: center;
+  transition: 0.3s ease-in-out;
+  background-color: rgb(234, 234, 234);
+}
+
+.btn_retour:hover{
+  background-color: rgb(231, 206, 218);    
+}
+
+.btn_sauvegarder{
+  margin-right: -30px;
+  background-color: rgb(181, 240, 223);
+  transition: 0.3s ease-in-out;
+}
+
+.btn_sauvegarder:hover{  
+  background-color:  rgb(149, 200, 186); 
+}
+
+
 /*-----------------------------------------------*/
 /*                CATALOGUE                      */                   
 /*-----------------------------------------------*/
 
+.catalogue_wrapper{
+  padding-top: 60px;
+}
+
 .catalogue{
-  margin: 20px 60px 30px 60px;
+  margin: 60px 60px 30px 60px;
 }
 
 /*-----------------------------------------------*/
@@ -187,6 +223,45 @@ nav a:hover{
   right: 0;
 }
 
+/*-----------------------------------------------*/
+/*                    FORM                       */                   
+/*-----------------------------------------------*/
+
+.form{
+  margin: 80px 150px 30px 150px;  
+  padding-bottom: 150px;
+  display: flex;
+  flex-direction: column;
+  position: relative;    
+  flex-grow: 1;
+}
+
+.form h1{
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.form_input_wrapper{  
+  margin-top: 10px;
+  display: flex;  
+  justify-content: space-between;
+  align-items: baseline
+}
+
+.form_input_wrapper input{
+  padding: 10px;   
+  width: 80%;
+  margin-top: 20px;
+  right: 0;
+  border: 1px solid rgb(216, 216, 216);
+  border-radius: 5px;  
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  transition: 0.2s ease-in;
+}
+
+.form_input_wrapper input:focus{     
+  box-shadow: 0 0 1px 1px rgb(46, 193, 156);
+}
 
 /*-----------------------------------------------*/
 /*                   FOOTER                      */                   
@@ -194,8 +269,10 @@ nav a:hover{
 
 footer{
   height: 100px;
+  width: 100%;
   background-color: rgb(109, 42, 74);   
-  padding: 30px;
+  padding: 30px;  
+  margin-bottom: 0;
 }
 
 footer p{
@@ -237,6 +314,12 @@ nav a{
  font-weight: 600;
 }
 
+.form h1{
+  font-size: 28px;
+  font-weight: 600;
+  color: rgb(109, 42, 74);
+}  
+
 /**************************************************/
 /*                    UTILITIES                   */
 /**************************************************/
@@ -244,7 +327,8 @@ nav a{
 .btn{
   border-radius: 7px;
   padding: 12px;
-  border: 1px solid rgb(109, 42, 74);      
+  border: 1px solid rgb(109, 42, 74);   
+  width: 150px;   
 }
 
 
