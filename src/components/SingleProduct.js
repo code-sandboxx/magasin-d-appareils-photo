@@ -1,6 +1,7 @@
 import React from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 
-const SingleProduct = ({product}) => (    
+const SingleProduct = ({product, id}) => (    
 
     <div className="item_wrapper">
 
@@ -19,8 +20,13 @@ const SingleProduct = ({product}) => (
 
         <div className="controles">
 
-            <button className="btn btn_modifier">Modifier</button>
-            <button className="btn btn_supprimer">Supprimer</button>
+            <Link to={`/modifier-produit/${product.id}`} type="button" className="btn btn_modifier">
+              Modifier
+            </Link>
+
+            <Link to="/supprimer-produit" className="btn btn_supprimer">
+                Supprimer
+            </Link>
 
         </div>
 

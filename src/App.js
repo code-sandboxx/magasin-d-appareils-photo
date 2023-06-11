@@ -71,14 +71,13 @@ function App() {
   //             Mise à jour d’un produit                 
   //********************************************************
 
-  const updatedProduct = (id, updatedFields) => {
-    setProducts(products.map((product) =>
-        product.id === id ? { ...product, ...updatedFields } : product
+  const updatedProduct = (updatedProduct) => {
+    setProducts(products.map((originalProduct) =>
+        originalProduct.id === updatedProduct.id ? { ...updatedProduct } : originalProduct
     ));
   };
 
   // Si certain produit n’est pas mis à jour  - va retourner le même objet. Sinon – le produit modifié. Ne change pas le tableau original.
-
 
   
   //********************************************************
@@ -111,7 +110,8 @@ function App() {
             'Aucun produit' 
           )} />  
 
-        <Route path="/ajouter-produit" element={<ProductForm onAdd={addNewProduct} />} />
+        <Route path="/ajouter-produit" element={<ProductForm onAdd={addNewProduct} products={products} />} />
+        <Route path="/modifier-produit/:id" element={<ProductForm onUpdate={updatedProduct} products={products} />} />
 
       </Routes> 
       <Footer /> 

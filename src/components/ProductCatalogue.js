@@ -11,7 +11,7 @@ const ProductCatalogue = ({products, onAdd, onUpdate}) => {
             
             <Link to="/ajouter-produit"
               type="button" 
-              class="btn btn_ajouter">
+              className="btn btn_ajouter">
                 Ajouter un produit +
             </Link> 
 

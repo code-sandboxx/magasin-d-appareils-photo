@@ -1,24 +1,26 @@
 import { useState, useEffect } from 'react'
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 
-const ProductForm = ({ onAdd, onUpdate, product }) => {
+const ProductForm = ({ onAdd, onUpdate, products }) => {
 
     const navigate = useNavigate();
+    const { id } = useParams();
+    const existingProduct = products.find((product) => product.id === parseInt(id));
+    console.log(existingProduct)
 
-    const [nom, setNom] = useState(product ? product.nom : '');
-    const [description, setDescription] = useState(product ? product.description : '');
-    const [prix, setPrix] = useState(product ? product.prix : '');
-    const [categorie, setCategorie] = useState(product ? product.categorie : '');
-    const [image, setImage] = useState(product ? product.image : '');
-
+    const [nom, setNom] = useState(existingProduct ? existingProduct.nom : '');
+    const [description, setDescription] = useState(existingProduct ? existingProduct.description : '');
+    const [prix, setPrix] = useState(existingProduct ? existingProduct.prix : '');
+    const [categorie, setCategorie] = useState(existingProduct ? existingProduct.categorie : '');
+    const [image, setImage] = useState(existingProduct ? existingProduct.image : '');
    
     useEffect(() => {
-        setNom(product ? product.nom : '');
-        setDescription(product ? product.description : '');
-        setPrix(product ? product.prix : '');
-        setCategorie(product ? product.categorie : '');
-        setImage(product ? product.image : 'generique.svg');
-    }, [product]);
+        setNom(existingProduct ? existingProduct.nom : '');
+        setDescription(existingProduct ? existingProduct.description : '');
+        setPrix(existingProduct ? existingProduct.prix : '');
+        setCategorie(existingProduct ? existingProduct.categorie : '');
+        setImage(existingProduct ? existingProduct.image : 'generique.svg');
+    }, [existingProduct]);
 
     const onSubmit = (e) => {  
 
@@ -32,19 +34,19 @@ const ProductForm = ({ onAdd, onUpdate, product }) => {
         }
 
         //Si l'objet produit est modifie  - va créer un nouveau objet avec les mêmes propriétés que l'objet original, avec les propriétés mises à jour mais le même id de produit
-        if (product) {
-            onUpdate({ ...product, nom, description, prix, categorie, image });
+        if (existingProduct) {
+            onUpdate({ ...existingProduct, nom, description, prix, categorie, image, id: parseInt(id) });
         } else {
             //sinon on ajout un nouveau objet produit sera créé et ajouté
-            onAdd({ nom, description, prix, categorie, image });    
-        }
+            onAdd({ nom, description, prix, categorie, image });  
 
-        //Effacer les champs du formulaire    
-        setNom('');
-        setDescription('');
-        setPrix('');
-        setCategorie('');
-        setImage('');
+            //Effacer les champs du formulaire    
+            setNom('');
+            setDescription('');
+            setPrix('');
+            setCategorie('');
+            setImage('');
+        }
 
         navigate('/catalogue');
     };
@@ -57,13 +59,13 @@ const ProductForm = ({ onAdd, onUpdate, product }) => {
             <h1>Veuillez saisir les informations de produit</h1>
 
             <div className="form_input_wrapper">
-                <label>Nom du produit : </label>
+                <label>Nom du produit : </label>                
                 <input 
                     type="text" 
                     placeholder="Ajoutez le nom du produit..." 
                     value={nom} 
                     onChange={(e) => setNom(e.target.value)}
-                />
+                />                
             </div>
 
             <div className="form_input_wrapper">
@@ -81,8 +83,9 @@ const ProductForm = ({ onAdd, onUpdate, product }) => {
                 <label>Prix : </label>
                 <input 
                     type="number" 
+                    value={prix} 
                     placeholder="$"  
-                    onChange={(e) => setPrix(e.currentTarget.value)}
+                    onChange={(e) => setPrix(e.target.value)}
                 />
             </div>
 
@@ -90,14 +93,18 @@ const ProductForm = ({ onAdd, onUpdate, product }) => {
                 <label>Categorie : </label>
                 <input 
                     type="text" 
+                    value={categorie} 
                     placeholder="Ajoutez la categorie..."  
-                    onChange={(e) => setCategorie(e.currentTarget.value)}
+                    onChange={(e) => setCategorie(e.target.value)}
                 />
             </div>
 
             <div className="form_input_wrapper img_generique_produit_wrapper">                
                 <label>Image de produit : </label>
-                 <img className="img_generique_produit" src="/img/generique.svg" alt="Image de produit générique" />
+                    <img className='img_generique_produit'
+                        src={existingProduct ? `/img/${existingProduct.image}` : "/img/generique.svg"}
+                        alt="Image de produit"
+                    />
             </div>
 
             <div className='controles'>
