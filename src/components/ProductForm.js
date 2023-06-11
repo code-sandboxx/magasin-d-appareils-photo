@@ -1,7 +1,10 @@
 import { useState, useEffect } from 'react'
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const ProductForm = ({ onAdd, onUpdate, product }) => {
+
+    const navigate = useNavigate();
+
     const [nom, setNom] = useState(product ? product.nom : '');
     const [description, setDescription] = useState(product ? product.description : '');
     const [prix, setPrix] = useState(product ? product.prix : '');
@@ -14,7 +17,7 @@ const ProductForm = ({ onAdd, onUpdate, product }) => {
         setDescription(product ? product.description : '');
         setPrix(product ? product.prix : '');
         setCategorie(product ? product.categorie : '');
-        setImage(product ? product.image : '');
+        setImage(product ? product.image : 'generique.svg');
     }, [product]);
 
     const onSubmit = (e) => {  
@@ -42,6 +45,8 @@ const ProductForm = ({ onAdd, onUpdate, product }) => {
         setPrix('');
         setCategorie('');
         setImage('');
+
+        navigate('/catalogue');
     };
 
     //Le formulaire
@@ -64,10 +69,10 @@ const ProductForm = ({ onAdd, onUpdate, product }) => {
             <div className="form_input_wrapper">
                 <label>Description : </label>
 
-                <input 
-                    type="text" 
+                <textarea                     
                     placeholder="Ajoutez la description..." 
                     value={description} 
+                    rows="7"
                     onChange={(e) => setDescription(e.target.value)} 
                 />
             </div>
@@ -90,18 +95,20 @@ const ProductForm = ({ onAdd, onUpdate, product }) => {
                 />
             </div>
 
+            <div className="form_input_wrapper img_generique_produit_wrapper">                
+                <label>Image de produit : </label>
+                 <img className="img_generique_produit" src="/img/generique.svg" alt="Image de produit générique" />
+            </div>
+
             <div className='controles'>
 
                 <Link to="/catalogue" className="btn btn_retour">
                     Retour
                 </Link>
 
-                <Link to="/catalogue" className="btn btn_sauvegarder">
-                    Sauvegarder
-                </Link>
+                <input type="submit" className="btn btn_sauvegarder" value="Sauvegarder"/>
 
             </div>
-
             
         </form>
     );

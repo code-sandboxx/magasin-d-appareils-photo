@@ -1,6 +1,5 @@
 import React, {useState} from "react";
 import SingleProduct from "./SingleProduct";
-import ProductForm from "./ProductForm";
 import { Link } from "react-router-dom";
 
 const ProductCatalogue = ({products, onAdd, onUpdate}) => {
