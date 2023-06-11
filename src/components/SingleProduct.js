@@ -1,7 +1,7 @@
 import React from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
-const SingleProduct = ({product, id}) => (    
+const SingleProduct = ({product, onDelete}) => (    
 
     <div className="item_wrapper">
 
@@ -24,9 +24,9 @@ const SingleProduct = ({product, id}) => (
               Modifier
             </Link>
 
-            <Link to="/supprimer-produit" className="btn btn_supprimer">
+            <button type="button" className="btn btn_supprimer" onClick = {()=> onDelete(product.id)}>
                 Supprimer
-            </Link>
+            </button>
 
         </div>
 

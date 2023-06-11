@@ -2,9 +2,7 @@ import React, {useState} from "react";
 import SingleProduct from "./SingleProduct";
 import { Link } from "react-router-dom";
 
-const ProductCatalogue = ({products, onAdd, onUpdate}) => {
-
-    const [showForm, setShowForm] = useState(false);
+const ProductCatalogue = ({products, onDelete}) => {
 
     return(
         <div className="catalogue_wrapper">
@@ -17,7 +15,7 @@ const ProductCatalogue = ({products, onAdd, onUpdate}) => {
 
             <div className="catalogue"> 
                 {products.map((product)=>(
-                    <SingleProduct product={product} key={product.id}/>
+                    <SingleProduct product={product} key={product.id} onDelete={onDelete}/>
                 ))}
             </div>           
             

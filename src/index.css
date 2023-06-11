@@ -35,6 +35,12 @@ input:focus, textarea:focus {
   gap: 50px; 
 }
 
+#root{
+  display: flex;
+  flex-direction: column;
+  height: 100%; 
+  flex-grow: 1; 
+}
 
 /**************************************************/
 /*                   COMPONENTS                   */
@@ -43,12 +49,6 @@ input:focus, textarea:focus {
 body{
   background-color: rgb(254, 254, 254);
   height: 100vh;
-}
-
-#root{
-  display: flex;
-  flex-direction: column;
-  height: 100%;  
 }
 
 .navbar{
@@ -123,6 +123,7 @@ nav a:hover{
   background-color: rgb(249, 214, 214);
   width: 150px;
   transition: 0.3s ease-in-out;
+  cursor: pointer;
 }
 
 .btn_supprimer:hover{
@@ -156,7 +157,7 @@ nav a:hover{
 /*-----------------------------------------------*/
 
 .catalogue_wrapper{
-  padding-top: 60px;
+  padding-top: 60px;  
 }
 
 .catalogue{
@@ -280,8 +281,8 @@ footer{
   height: 100px;
   width: 100%;
   background-color: rgb(109, 42, 74);   
-  padding: 30px;  
-  margin-bottom: 0;
+  padding: 30px;    
+  margin-top: auto;
 }
 
 footer p{

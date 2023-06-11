@@ -71,7 +71,7 @@ function App() {
   //             Mise à jour d’un produit                 
   //********************************************************
 
-  const updatedProduct = (updatedProduct) => {
+  const updateProduct = (updatedProduct) => {
     setProducts(products.map((originalProduct) =>
         originalProduct.id === updatedProduct.id ? { ...updatedProduct } : originalProduct
     ));
@@ -99,19 +99,27 @@ function App() {
     setProducts([...products, newProduct]);
   };
 
+  //********************************************************
+  //             Suppression à jour d’un produit                 
+  //********************************************************
+
+  const deleteProduct = (id) => {    
+    setProducts(products.filter((product) => product.id !== id))
+  }
+
   return (
     <BrowserRouter> 
       <Header /> 
       <Routes>
         <Route path="/catalogue" element={ 
           products.length > 0 ? ( 
-            <ProductCatalogue products={products} onAdd={addNewProduct} onUpdate={updatedProduct}/> 
+            <ProductCatalogue products={products} onDelete={deleteProduct}/> 
           ):(
             'Aucun produit' 
           )} />  
 
         <Route path="/ajouter-produit" element={<ProductForm onAdd={addNewProduct} products={products} />} />
-        <Route path="/modifier-produit/:id" element={<ProductForm onUpdate={updatedProduct} products={products} />} />
+        <Route path="/modifier-produit/:id" element={<ProductForm onUpdate={updateProduct} products={products} />} />
 
       </Routes> 
       <Footer /> 
