@@ -12,7 +12,7 @@
       "id": 2,
       "nom": "Quadricoptère Mini 2 SE de DJI avec télécommande - Gris",
       "description": "Enregistrez facilement vos moments d'action préférés comme un as avec ce drone quadricoptère Mini 2 SE de DJI avec manette. Léger et portatif, ce drone est facile à utiliser et prend en charge une portée de transmission vidéo jusqu'à 10 km. Les modes intelligents vous permettent de prendre facilement des photos professionnelles. La résistance au vent de niveau 5 et le cardan inclus offrent une stabilité incroyable.",
-      "prix": 600,
+      "prix": "500",
       "categorie": "Drones",
       "image": "17051208.jpg"
     },
@@ -47,14 +47,6 @@
       "prix": 250,
       "categorie": "Trépieds, supports et stabilisateurs",
       "image": "15395964.jpg"
-    },
-    {
-      "nom": "fffff",
-      "description": "fffff",
-      "prix": "14",
-      "categorie": "jjj",
-      "image": "generique.svg",
-      "id": 7
     }
   ]
 }

@@ -16,26 +16,42 @@ function App() {
     setProducts(productsFromServer)
     }
     getProducts()
-    }, [])
-    const fetchProducts = async () => {
+  }, [])
+
+  const fetchProducts = async () => {
     const res = await fetch('http://localhost:5000/products')
     const data = await res.json()
     //console.log(data)
     return data
   }
 
-  // Données  - tableau d'objets de tous les produits
-  // les produits de l'état setProducts seront affichés lors d'un ajout d'un produit
-
+  const fetchProduct = async (id) => {
+    const res = await fetch(`http://localhost:5000/products/${id}`)
+    const data = await res.json()
+    return data
+  }
   
   //********************************************************
   //             Mise à jour d’un produit                 
   //********************************************************
 
-  const updateProduct = (updatedProduct) => {
-    setProducts(products.map((originalProduct) =>
-        originalProduct.id === updatedProduct.id ? { ...updatedProduct } : originalProduct
-    ));
+  const updateProduct = async (productId) => {
+    const { id } = productId;
+    const res = await fetch(`http://localhost:5000/products/${id}`, {
+      method: 'PUT',
+      headers: {
+        'Content-type': 'application/json'
+      },
+      body: JSON.stringify(productId)
+    });
+  
+    if (res.ok) {
+      setProducts((prevProducts) =>
+        prevProducts.map((product) =>
+          product.id === id ? { ...productId } : product
+        )
+      );
+    }
   };
 
   // Si certain produit n’est pas mis à jour  - va retourner le même objet. Sinon – le produit modifié. Ne change pas le tableau original.
@@ -70,7 +86,7 @@ function App() {
   //********************************************************
 
   const deleteProduct = async (id) => {
-    await fetch(`http://localhost:5000/tasks/${id}`, {
+    await fetch(`http://localhost:5000/products/${id}`, {
       method: 'DELETE',
     }) 
     setProducts(products.filter((product) => product.id !== id)) 
