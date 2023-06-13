@@ -1,4 +1,4 @@
-# # Pro-Photo: A React-based Camera Shop Simulation with Live and Static Data Options
+## Pro-Photo: A React-based Camera Shop Simulation with Live and Static Data Options
 
 This project, Pro-Photo, is a camera shop simulation developed using React. It serves as a tool for understanding the operations of an online store and exploring how to manipulate data within the application. 
 
