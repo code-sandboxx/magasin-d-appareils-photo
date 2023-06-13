@@ -1,70 +1,50 @@
-# Getting Started with Create React App
+# Pro-Photo: A React-based Camera Shop Simulation with Live and Static Data Options
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project, Pro-Photo, is a camera shop simulation developed using React. It serves as a tool for understanding the operations of an online store and exploring how to manipulate data within the application. 
 
-## Available Scripts
+*Pro-Photo comes in two versions: Static Data Version and Live Data Version (JSON Server).*
 
-In the project directory, you can run:
+ **This is the live Data Version (CRUD Operations):** 
+ 
+ In this variant, the application holds product data in a local variable and showcases six products on the catalogue page. Users can add, delete, and modify existing product entries using dedicated buttons and a form. However, these changes do not persist across page reloads.
 
-### `npm start`
+---
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Getting Started
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+To get a copy of this project on your local machine, clone the repository:
 
-### `npm test`
+    git clone https://github.com/code-sandboxx/magasin-d-appareils-photo.git
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Switch to the correct branch: 
 
-### `npm run build`
+      git checkout json-server-version
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Once you are in the root folder, install dependencies:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+      npm install
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Run the backend server:
 
-### `npm run eject`
+      npm run server
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Run the frontend server:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+      npm start
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Build the optimized version of the project (optional):
 
-## Learn More
+      npm run build
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+To launch the build version:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+To run the build version of the application, make sure the backend server is running, and then use the following command:
 
-### Code Splitting
+    npx serve -s build -p 8000
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### Prerequisites
 
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
++ Node.js
++ npm
++ Code editor
